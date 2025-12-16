@@ -1,25 +1,18 @@
 package com.programmingtechie.productservice.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.math.BigDecimal;
-
-@Document(value = "product")
+@Document(collection = "database_sequences")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Data
-public class Product {
+public class DatabaseSequence {
 
     @Id
     private String id;
-    public static final String SEQUENCE_NAME = "product_sequence";
-    private String name;
-    private String description;
-    private BigDecimal price;
+    private long seq;
 }
