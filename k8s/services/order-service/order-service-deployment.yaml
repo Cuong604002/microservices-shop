@@ -2,28 +2,28 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: order-service
-  name: order-service
+    app: order-application
+  name: order-application
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: order-service
+      app: order-application
   strategy: {}
   template:
     metadata:
 
       labels:
-        app: order-service
+        app: order-application
     spec:
       containers:
         - env:
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:postgresql://postgres-order:5431/order-service
+              value: jdbc:postgresql://postgres-order:5431/order-application
             - name: SPRING_PROFILES_ACTIVE
               value: docker
-          image: saiupadhyayula007/order-service:latest
-          name: order-service
+          image: saiupadhyayula007/order-application:latest
+          name: order-application
           resources: {}
       restartPolicy: Always
 status: {}
@@ -32,14 +32,14 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: order-service
-  name: order-service
+    app: order-application
+  name: order-application
 spec:
   ports:
     - name: "80"
       port: 80
       targetPort: 9193
   selector:
-    app: order-service
+    app: order-application
 status:
   loadBalancer: {}

@@ -24,7 +24,7 @@ spec:
             - name: PGDATA
               value: /data/postgres
             - name: POSTGRES_DB
-              value: order-service
+              value: order-application
             - name: POSTGRES_PASSWORD
               value: password
             - name: POSTGRES_USER

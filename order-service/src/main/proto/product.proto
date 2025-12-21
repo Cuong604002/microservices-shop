@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.programmingtechie.product";
+option java_outer_classname = "ProductProto";
+service ProductService {
+  rpc GetProduct (GetProductRequest) returns (ProductResponse);
+  rpc CreateProduct (CreateProductRequest) returns (ProductResponse);
+  rpc UpdateProduct (UpdateProductRequest) returns (ProductResponse);
+  rpc DeleteProduct (DeleteProductRequest) returns (DeleteProductResponse);
+  rpc GetAllProducts (GetAllProductsRequest) returns (AllProductsResponse);
+}
+message GetProductRequest {
+  string sku_code = 1;
+}
+message CreateProductRequest {
+  string name = 1;
+  string description = 2;
+  double price = 3;
+  string sku_code = 4;
+}
+message UpdateProductRequest {
+  string sku_code = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+}
+message DeleteProductRequest {
+  string id = 1;
+}
+message DeleteProductResponse {
+  string message = 1;
+}
+message GetAllProductsRequest {}
+message AllProductsResponse {
+  repeated ProductResponse products = 1;
+}
+message ProductResponse {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  string sku_code = 5;
+}

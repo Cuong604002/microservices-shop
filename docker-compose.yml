@@ -116,9 +116,9 @@ services:
   #     - discovery-server
   #     - keycloak
 
-  # product-service:
-  #   container_name: product-service
-  #   image: microservices-tutorial/product-service:latest
+  # product-application:
+  #   container_name: product-application
+  #   image: microservices-tutorial/product-application:latest
   #   environment:
   #     - SPRING_PROFILES_ACTIVE=docker
   #   depends_on:
@@ -126,9 +126,9 @@ services:
   #     - discovery-server
   #     - api-gateway
 
-  # order-service:
-  #   container_name: order-service
-  #   image: microservices-tutorial/order-service:latest
+  # order-application:
+  #   container_name: order-application
+  #   image: microservices-tutorial/order-application:latest
   #   environment:
   #     - SPRING_PROFILES_ACTIVE=docker
   #     - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/order_service
@@ -139,9 +139,9 @@ services:
   #     - discovery-server
   #     - api-gateway
 
-  # inventory-service:
-  #   container_name: inventory-service
-  #   image: microservices-tutorial/inventory-service:latest
+  # inventory-application:
+  #   container_name: inventory-application
+  #   image: microservices-tutorial/inventory-application:latest
   #   environment:
   #     - SPRING_PROFILES_ACTIVE=docker
   #     - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/inventory_service
@@ -150,9 +150,9 @@ services:
   #     - discovery-server
   #     - api-gateway
 
-  # notification-service:
-  #   container_name: notification-service
-  #   image: microservices-tutorial/notification-service:latest
+  # notification-application:
+  #   container_name: notification-application
+  #   image: microservices-tutorial/notification-application:latest
   #   environment:
   #     - SPRING_PROFILES_ACTIVE=docker
   #   depends_on:

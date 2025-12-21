@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.programmingtechie.inventory";
+option java_outer_classname = "InventoryProto";
+
+service InventoryService {
+  rpc IsInStock (IsInStockRequest) returns (IsInStockResponse);
+  rpc AddStock (AddStockRequest) returns (InventoryResponse);
+  rpc UpdateStock (UpdateStockRequest) returns (InventoryResponse);
+  rpc DeleteStock (DeleteStockRequest) returns (DeleteStockResponse);
+  rpc GetAllStock (GetAllStockRequest) returns (GetAllStockResponse);
+
+}
+message IsInStockRequest {
+  repeated string sku_code = 1; // Đổi skuCode -> sku_code
+}
+message IsInStockResponse {
+  repeated InventoryResponse items = 1;
+}
+message InventoryResponse {
+  string sku_code = 1; // Đổi skuCode -> sku_code
+  bool is_in_stock = 2; // Nên đổi luôn thành is_in_stock cho đồng bộ
+  int32 quantity = 3;
+}
+message AddStockRequest {
+  string sku_code = 1; // Đổi
+  int32 quantity = 2;
+}
+message UpdateStockRequest {
+  string sku_code = 1; // Đổi
+  int32 quantity = 2;
+}
+message DeleteStockRequest {
+  string sku_code = 1; // Đổi
+}
+message DeleteStockResponse {
+  string message = 1;
+}
+message GetAllStockRequest {} // Request rỗng (không cần tham số)
+message GetAllStockResponse {
+  repeated InventoryResponse items = 1; // Trả về danh sách
+}
