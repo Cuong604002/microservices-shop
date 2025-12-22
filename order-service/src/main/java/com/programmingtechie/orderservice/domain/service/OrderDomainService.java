@@ -104,4 +104,14 @@ public class OrderDomainService {
             throw new RuntimeException("Không tìm thấy đơn hàng để xóa!");
         }
     }
+    public List<Order> getAllOrders() {
+        return orderRepository.findAll();
+    }
+
+    // 2. Lấy 1 đơn hàng theo ID
+    public Order getOrderById(Long id) {
+        return orderRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy đơn hàng có ID: " + id));
+    }
+
 }
